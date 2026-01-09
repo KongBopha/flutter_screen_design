@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_testing/presentation/views/widgets/bottomnavigatebar_widget.dart';
 import 'package:flutter_testing/presentation/views/widgets/textcontroller_widget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -10,13 +12,13 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
-        title: const Text("Create your account",),
+        title:  Text("Create your account",style: TextStyle(fontSize: 20.sp),),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-            height: 200,
+            height: 200.h,
             width: double.infinity,
             decoration: BoxDecoration(
                 image: DecorationImage(
@@ -27,7 +29,7 @@ class LoginScreen extends StatelessWidget {
             child: Transform.translate(
               offset: const Offset(0.0, 170.0),
               child: Container(
-              height: 300,
+              height: 300.h,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -53,24 +55,29 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 15,),
+            SizedBox(height: 15.h,),
             SizedBox(
-              height: 40,
-              width: 150,
+              height: 50.h,
+              width: 150.w,
               child:ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepPurpleAccent,
                 foregroundColor: Colors.white,
               ),
-              onPressed: () {},
-              child: Text('Login'),
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(
+                  builder: (context) => const BottomnavigatebarWidget(),)
+                  );
+              },
+              child: Text('Login',  style: TextStyle(fontSize: 16.sp,),
+              ),
             ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(height: 5.h,),
             const Text("Or"),
             SizedBox(
-              width: 150,
-              height: 70,
+              width: 150.w,
+              height: 70.h,
               child:Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,21 +85,21 @@ class LoginScreen extends StatelessWidget {
                 Expanded(
                   child: Image.asset(
                     "assets/google.png",
-                    height: 30,
+                    height: 30.h,
                     fit: BoxFit.contain,
                   ),
                 ),
                 Expanded(
                   child: Image.asset(
                     "assets/facebook.png",
-                    height: 30,
+                    height: 30.h,
                     fit: BoxFit.contain,
                   ),
                 ),
                 Expanded(
                   child: Image.asset(
                     "assets/twitter.png",
-                    height: 30,
+                    height: 30.h,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -102,7 +109,7 @@ class LoginScreen extends StatelessWidget {
             RichText(
               text: TextSpan(
                 text: 'Don\'t have an account ? ',
-                style: TextStyle(color: Colors.black, fontSize: 14), 
+                style: TextStyle(color: Colors.black, fontSize: 14.sp), 
                 children: <TextSpan>[
                   TextSpan(
                     text: 'Sign Up',

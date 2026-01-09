@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_testing/presentation/views/screens/homescreen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_testing/presentation/views/screens/login_screen.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -18,25 +19,22 @@ class _SplashscreenState extends State<Splashscreen> {
     await Future.delayed(const Duration(seconds: 3));
     if(mounted){
       Navigator.pushReplacement(context, 
-      MaterialPageRoute(builder: (context)=> const Homescreen()));
+      MaterialPageRoute(builder: (context)=> const LoginScreen()));
     }
   }
 
   @override
   Widget build(BuildContext context) {
         return Scaffold(
-      appBar: AppBar(
-        title: const Text("Hello"),
-        backgroundColor: Colors.amberAccent,
-      ),
+          backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment:MainAxisAlignment.center,
         children: [
           Container(
-            height: 200,
+            height: 200.h,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/slpash.png"),
+            image: AssetImage("assets/splash.png"),
             fit: BoxFit.contain,
             ),
         ),
