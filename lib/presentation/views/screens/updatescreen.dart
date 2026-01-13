@@ -1,46 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_testing/presentation/views/widgets/iconlabel_widget.dart';
+import 'package:flutter_testing/presentation/views/widgets/expansionpanellist_widget.dart';
 
-class Updatescreen extends StatelessWidget {
+class Updatescreen extends StatefulWidget {
   const Updatescreen({super.key});
 
   @override
+  State<Updatescreen> createState() => _UpdatescreenState();
+}
+
+class _UpdatescreenState extends State<Updatescreen> with SingleTickerProviderStateMixin{
+  static const List<Tab> tabs = <Tab>[
+    Tab(text: 'New',),
+    Tab(text: 'Processing',),
+    Tab(text: 'Delivering',),
+    Tab(text: 'Completed',),
+  ];
+  late TabController _tabController;
+
+  @override
+  void initState(){
+    super.initState();
+    _tabController = TabController(vsync:this,length: tabs.length);
+  }
+  @override
+  void dispose(){
+    _tabController.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:SingleChildScrollView(
-        child: Stack(
-          children: [
-            Container(
-              height: 50,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage('https://previews.123rf.com/images/topvectors/topvectors1506/topvectors150600015/40658771-travel-vacation-flat-design-set-vector-concept-illustration-travel-banner.jpg'),
-                  fit: BoxFit.contain
-                  ),
-              ),
-            ),
-            Positioned.fill(
-              child: Row(
-                children: [
-                  IconlabelWidget(img: 'assets/images/google.png', label: 'Hello'),
-                  IconlabelWidget(img: 'asset/images/google.png', label: 'Hello'),
-                  IconlabelWidget(img: 'asset/images/google.png', label: 'Hello'),
-                ],
-              ),
-            )
-          ]
+    return DefaultTabController(
+      length: tabs.length,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Filter'),
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: tabs,
+          ),
         ),
-      ) ,
+        body: TabBarView(
+          controller: _tabController,
+          children: const <Widget>[ 
+             ExpansionpanellistWidget(),
+            Center(child: Text('Processing Orders',style: TextStyle(color: Colors.black),)),
+            Center(child: Text('Delivering Orders',style: TextStyle(color: Colors.black),)),
+            Center(child: Text('Completed Orders',style: TextStyle(color: Colors.black),)),
+          ], 
+        ),
+      ),
     );
   }
-}
-Widget headerContent (){
-  return Container(
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        image: NetworkImage('https://previews.123rf.com/images/topvectors/topvectors1506/topvectors150600015/40658771-travel-vacation-flat-design-set-vector-concept-illustration-travel-banner.jpg')
-        ),
-    ),
-  );
 }
