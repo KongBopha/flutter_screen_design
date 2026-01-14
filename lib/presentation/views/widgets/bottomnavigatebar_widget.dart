@@ -15,7 +15,7 @@ class _BottomnavigatebarWidgetState extends State<BottomnavigatebarWidget> {
   int _selectedIndex = 0;
   final List <Widget> pages = [
     Homescreen(),
-    Updatescreen(),
+    UpdateScreen(),
     ProfileInfo(),
   ];
 
