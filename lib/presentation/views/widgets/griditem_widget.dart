@@ -64,10 +64,38 @@ class GridInfoList extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.r),
                 child: Image.network(
                   product.images.first,
-                  fit: BoxFit.cover,
                   width: double.infinity,
+                  fit: BoxFit.contain,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+
+                    return SizedBox(
+                      height: 250,
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes!
+                              : null,
+                        ),
+                      ),
+                    );
+                  },
+                  errorBuilder: (context, error, stackTrace) {
+                    return SizedBox(
+                      height: 250,
+                      child: Center(
+                        child: Icon(
+                          Icons.broken_image,
+                          size: 40,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
+
             ),
             SizedBox(height: 8.h),
             Padding(

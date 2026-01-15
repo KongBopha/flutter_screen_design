@@ -38,11 +38,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> with Single
         iconTheme: const IconThemeData(color: Colors.black),
         bottom: TabBar(
           controller: _tabController,
+          dividerColor: Colors.transparent, // Remove bottom border under the TabBar
           tabAlignment: TabAlignment.start,
           isScrollable: true,
           indicator: BoxDecoration(
             color: Colors.red[800],
             borderRadius: BorderRadius.circular(32),
+            border: Border.all(color: Colors.grey.shade300),
           ),
           indicatorSize: TabBarIndicatorSize.tab,
           labelColor: Colors.white,
