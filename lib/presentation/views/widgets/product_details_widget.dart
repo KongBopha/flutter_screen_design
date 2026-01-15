@@ -38,7 +38,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
               ),
               const SizedBox(width: 8),
               Text(
-                model.price.toStringAsFixed(2),
+                '\$${model.price.toStringAsFixed(2)}',
                 style: const TextStyle(
                   fontSize: 14,
                   color: Colors.grey,
@@ -46,12 +46,20 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 ),
               ),
               const SizedBox(width: 8),
-              Text(
-                '${model.discountPercent.toStringAsFixed(0)}%',
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.red,
-                  fontWeight: FontWeight.w500,
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: Colors.red[800],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  '${model.discountPercent.toStringAsFixed(0)}% ',
+                  style: const TextStyle(
+                    fontSize: 12, 
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],
@@ -85,26 +93,28 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
 
           const SizedBox(height: 16),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Product details',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+          InkWell(
+            onTap: () {
+              setState(() {
+                _showMore = !_showMore;
+              });
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Product details',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
                 ),
-              ),
-              ExpandIcon(
-                isExpanded: _showMore,
-                onPressed: (value) {
-                  setState(() {
-                    _showMore = value;
-                  });
-                },
-              ),
-            ],
+                Icon(
+                  _showMore ? Icons.expand_less : Icons.expand_more,
+                ),
+              ],
+            ),
           ),
 
           // ================= Collapsible Content =================
@@ -127,7 +137,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                       ClipboardData(text: model.code.toString()),
                     ).then((_) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Copied!')),
+                        const SnackBar(content: Text('Copied!',style: TextStyle(color: Colors.redAccent),),backgroundColor: Colors.white,),
                       );
                     });
                   },
