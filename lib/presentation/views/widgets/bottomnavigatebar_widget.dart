@@ -22,10 +22,10 @@ class _BottomnavigatebarWidgetState extends State<BottomnavigatebarWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.deepPurpleAccent),
+      appBar: AppBar(backgroundColor: Colors.redAccent),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor: Colors.red,
         onTap: (index) {
           setState(() => _selectedIndex = index);
         },
