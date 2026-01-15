@@ -74,6 +74,7 @@ class _UpdateScreenState extends State<UpdateScreen>
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
+        
         appBar: AppBar(
           title: const Text('Filter'),
           bottom: TabBar(
@@ -93,9 +94,9 @@ class _UpdateScreenState extends State<UpdateScreen>
                 debugPrint('${item.headerValue} -> ${subItem.title}: $value');
               },
             ),
-            const Center(child: Text('Processing Orders')),
-            const Center(child: Text('Delivering Orders')),
-            const Center(child: Text('Completed Orders')),
+            const Center(child: Text('Processing Orders',style: TextStyle(color: Colors.black),)),
+            const Center(child: Text('Delivering Orders',style: TextStyle(color: Colors.black))),
+            const Center(child: Text('Completed Orders',style: TextStyle(color: Colors.black))),
           ],
         ),
       ),

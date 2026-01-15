@@ -36,6 +36,7 @@ class _CategoryExpansionListState extends State<CategoryExpansionList> {
               children: [
                 Checkbox(
                   value: item.isChecked,
+                  activeColor: Colors.red,
                   onChanged: (v) {
                     setState(() => item.isChecked = v ?? false);
                     widget.onCategoryChecked?.call(item, item.isChecked);
@@ -66,12 +67,14 @@ class _CategoryExpansionListState extends State<CategoryExpansionList> {
         if (item.isExpanded)
           Column(
             children: item.subItems.map((sub) {
+              
               return Padding(
                 padding: const EdgeInsets.only(left: 50, right: 16, bottom: 10),
                 child: Row(
                   children: [
                     Checkbox(
                       value: sub.isChecked,
+                      activeColor: Colors.red,
                       onChanged: (v) {
                         setState(() => sub.isChecked = v ?? false);
                         widget.onSubItemChecked?.call(item, sub, sub.isChecked);
@@ -91,8 +94,6 @@ class _CategoryExpansionListState extends State<CategoryExpansionList> {
               );
             }).toList(),
           ),
-
-        const Divider(height: 1),
       ],
     );
   }
