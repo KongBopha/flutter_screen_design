@@ -18,10 +18,11 @@ class Homescreen extends StatelessWidget {
         availableStock: 180,
         code: 234567,
         description:
-            "Comfortable casual hoodie made from soft cotton fabric. Suitable for daily wear, lightweight, warm, and breathable.",
-        images: [
-          "https://www.closurelondon.com/cdn/shop/files/CLSR3986_0014_CLS-ECOMBLAKE-22AUG4117.jpg?v=1756299639",
+            "Comfortable casual hoodie made from soft cotton fabric. Suitable for daily wear, lightweight, warm, and breathable.Comfortable casual hoodie made from soft cotton fabric. Suitable for daily wear, lightweight, warm, and breathable.Comfortable casual hoodie made from soft cotton fabric. Suitable for daily wear, lightweight, warm, and breathable.",
+        images: [          
           "https://i5.walmartimages.com/seo/Pullover-Plain-Hoodie-for-Men-Casual-Front-Pocket-Long-Sleeve-Cotton-Fleece-Hooded-Sweatshirts-Drawstring-Tops-Large-Light-Blue_4610b52e-6e16-45c4-9380-467f21fa0d95.f2d165170b9ba411ecf3ed71920c01a6.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+          "https://www.closurelondon.com/cdn/shop/files/CLSR3986_0014_CLS-ECOMBLAKE-22AUG4117.jpg?v=1756299639",
+
         ],
       ),
 
@@ -140,7 +141,7 @@ class Homescreen extends StatelessWidget {
                           SizedBox(height: 20.h),
                           // Search bar
                           Container(
-                            height: 48,
+                            height: 48.h,
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             decoration: BoxDecoration(
                               color: Colors.white,

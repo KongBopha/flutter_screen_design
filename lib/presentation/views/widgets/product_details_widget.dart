@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_testing/domain/models/product_details_model.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ProductDetailsWidget extends StatefulWidget {
   const ProductDetailsWidget({
     super.key,
@@ -22,7 +22,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
     final model = widget.model;
 
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding:  EdgeInsets.all(10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -30,22 +30,22 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
             children: [
               Text(
                 '\$${model.discountedPrice.toStringAsFixed(2)}',
-                style: const TextStyle(
-                  fontSize: 16,
+                style: TextStyle(
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: 8.w),
               Text(
                 '\$${model.price.toStringAsFixed(2)}',
-                style: const TextStyle(
-                  fontSize: 14,
+                style:  TextStyle(
+                  fontSize: 14.sp,
                   color: Colors.grey,
                   decoration: TextDecoration.lineThrough,
                 ),
               ),
-              const SizedBox(width: 8),
+              SizedBox(width: 8.w),
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
@@ -55,8 +55,8 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                 ),
                 child: Text(
                   '${model.discountPercent.toStringAsFixed(0)}% ',
-                  style: const TextStyle(
-                    fontSize: 12, 
+                  style: TextStyle(
+                    fontSize: 12.sp,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -65,33 +65,33 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
             ],
           ),
 
-          const SizedBox(height: 8),
+           SizedBox(height: 8.h),
 
           Text(
             model.name,
-            style: const TextStyle(
-              fontSize: 16,
+            style:  TextStyle(
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
 
-          const SizedBox(height: 6),
+          SizedBox(height: 6.h),
           Row(
             children: [
               Text(
                 '${model.soldCount.toInt()} Sold',
-                style: const TextStyle(fontSize: 14, color: Colors.grey),
+                style: TextStyle(fontSize: 14.sp, color: Colors.grey),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10.w),
               Text(
                 '${model.availableStock.toInt()} Available',
-                style: const TextStyle(fontSize: 14, color: Colors.grey),
+                style: TextStyle(fontSize: 14.sp, color: Colors.grey),
               ),
             ],
           ),
 
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
 
           InkWell(
             onTap: () {
@@ -102,10 +102,10 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                 Text(
                   'Product details',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
                   ),
@@ -119,18 +119,18 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
 
           // ================= Collapsible Content =================
           if (_showMore) ...[
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Row(
               children: [
                 Text(
                   "Code: ${model.code.toInt()}",
-                  style: const TextStyle(
-                    fontSize: 14,
+                  style: TextStyle(
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.black87,
                   ),
                 ),
-                const SizedBox(width: 20),
+                SizedBox(width: 20.w),
                 IconButton(
                   onPressed: () {
                     Clipboard.setData(
@@ -147,68 +147,52 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
               ],
             ),
 
-            const SizedBox(height: 4),
+             SizedBox(height: 4.h),
             Text(
               model.description,
-              style: const TextStyle(
-                fontSize: 14,
+              style: TextStyle(
+                fontSize: 14.sp,
                 color: Colors.black54,
               ),
             ),
-
-            const SizedBox(height: 12),
+            SizedBox(height: 12.h),
           ],
-          const Text(
+           Text(
             'Product Options',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
-
-          const SizedBox(height: 8),
+          SizedBox(height: 8.h),
 
           Row(
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey[100],
+                  backgroundColor: Colors.grey[50],
                 ),
                 onPressed: () {},
-                child: const Text(
+                child:   Text(
                   'Size',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
-              const SizedBox(width: 14),
+              SizedBox(width: 14.w),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey[100],
+                  backgroundColor: Colors.grey[50],
                 ),
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   'Color',
                   style: TextStyle(color: Colors.black),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 16),
-          SizedBox(
-            height: 60,
-            width: double.infinity,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red[800],
-              ),
-              onPressed: () {},
-              child: const Text(
-                'Edit Product',
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              ),
-            ),
-          ),
+          SizedBox(height: 16.h),
         ],
       ),
     );
