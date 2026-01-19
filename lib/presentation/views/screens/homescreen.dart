@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_testing/domain/models/product_details_model.dart';
+import 'package:flutter_testing/presentation/views/screens/product_screen.dart';
 import 'package:flutter_testing/presentation/views/widgets/griditem_widget.dart';
 
-class Homescreen extends StatelessWidget {
+class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
 
+  @override
+  State<Homescreen> createState() => _HomescreenState();
+}
+
+class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     final List<ProductDetailsModel> products = [
@@ -198,6 +204,17 @@ class Homescreen extends StatelessWidget {
           // Grid of products
           GriditemWidget(items: products),
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context)=> const ProductScreen()),
+            );
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

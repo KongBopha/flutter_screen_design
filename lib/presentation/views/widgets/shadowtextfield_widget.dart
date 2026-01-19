@@ -29,6 +29,9 @@ class ShadowTextField extends StatelessWidget {
       child: TextField(
         controller: controller, 
         obscureText: obscureText,
+        style: TextStyle(
+          color: Colors.black,
+        ),
         decoration: InputDecoration(
           hintText: hintText,
           contentPadding: const EdgeInsets.symmetric(
