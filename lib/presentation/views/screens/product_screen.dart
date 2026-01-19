@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_testing/core/utils/category_enum.dart';
 import 'package:flutter_testing/core/utils/gender_enum.dart';
-import 'package:flutter_testing/presentation/views/screens/createvariant%20_screen.dart';
+import 'package:flutter_testing/presentation/views/screens/createvariantscreen.dart';
 import 'package:flutter_testing/presentation/views/widgets/dialog_widget.dart';
 import 'package:flutter_testing/presentation/views/widgets/dropdown_widget.dart';
 import 'package:flutter_testing/presentation/views/widgets/fieldtitle_widget.dart';
@@ -152,29 +152,25 @@ class _ProductScreenState extends State<ProductScreen> {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.red[800],),
-              onPressed: () async {
-                return showDialog (
-                  context: context,
-                   builder: (context) => const VariationDialog(),
-                );
+          onPressed: () async {
+            // Show the dialog and wait for the result
+            final result = await showDialog<String>(
+              context: context,
+              builder: (_) => const VariationDialog(),
+            );
 
-                // if (result == "multiple") {
-                //    Navigator.pushReplacement(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (_) => const CreateVariantScreen(),
-                //     ),
-                //   );
-                // }
-                // if (result == "single") {
-                //   Navigator.pushReplacement(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (_) => const CreateVariantScreen(),
-                //     ),
-                //   );
-                // }
-              },
+            if (result == null) return;
+
+            // Navigate to CreateVariantScreen with data
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => CreateVariantScreen(
+                  isMultiple: result == "multiple",
+                ),
+              ),
+            );
+          },
               child: Text(
                 'Create Variantion',
                   style: TextStyle(color: Colors.white, fontSize: 16.sp),

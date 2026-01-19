@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_testing/domain/models/product_details_model.dart';
 import 'package:flutter_testing/domain/models/productvariants_model.dart';
-import 'package:flutter_testing/presentation/views/screens/createvariant%20_screen.dart';
+import 'package:flutter_testing/presentation/views/screens/createvariantscreen.dart';
 import 'package:flutter_testing/presentation/views/screens/variant_product_screen.dart';
 import 'package:flutter_testing/presentation/views/widgets/product_details_widget.dart';
 
@@ -246,13 +246,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red[800],
                   ),
-                  onPressed: () {
-                    Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => 
-                        const CreateVariantScreen(),
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   child: Text(
                     'Edit Product',
                     style: TextStyle(color: Colors.white, fontSize: 16.sp),
