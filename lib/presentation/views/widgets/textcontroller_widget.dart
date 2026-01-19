@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_testing/presentation/views/widgets/fieldtitle_widget.dart';
+import 'package:flutter_testing/presentation/views/widgets/shadowtextfield_widget.dart';
 
 class TextcontrollerWidget extends StatefulWidget {
   const TextcontrollerWidget({super.key});
@@ -18,54 +20,6 @@ class _TextcontrollerWidgetState extends State<TextcontrollerWidget> {
     super.dispose();
   }
 
-  Widget _buildTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildShadowTextField({
-    required TextEditingController controller,
-    required String hintText,
-    bool obscureText = false,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 10,
-            offset: Offset(0, 4),
-          ),
-        ],
-      ),
-      child: TextField(
-        controller: controller,
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          hintText: hintText,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 14,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide.none,
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -74,8 +28,8 @@ class _TextcontrollerWidgetState extends State<TextcontrollerWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Email
-          _buildTitle("Email"),
-          _buildShadowTextField(
+          const FieldTitle("Email"),
+          ShadowTextField(
             controller: emailController,
             hintText: "Enter your email",
           ),
@@ -83,8 +37,8 @@ class _TextcontrollerWidgetState extends State<TextcontrollerWidget> {
           const SizedBox(height: 24),
 
           // Password
-          _buildTitle("Password"),
-          _buildShadowTextField(
+          const FieldTitle("Password"),
+          ShadowTextField(
             controller: passwordController,
             hintText: "Enter your password",
             obscureText: true,
@@ -94,3 +48,5 @@ class _TextcontrollerWidgetState extends State<TextcontrollerWidget> {
     );
   }
 }
+
+

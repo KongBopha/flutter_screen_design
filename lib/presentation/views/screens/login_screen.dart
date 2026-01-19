@@ -113,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                 children: <TextSpan>[
                   TextSpan(
                     text: 'Sign Up',
-                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurpleAccent,fontSize: 14),  
+                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurpleAccent,fontSize: 14.sp),  
                   ),
                 ],
               ),
