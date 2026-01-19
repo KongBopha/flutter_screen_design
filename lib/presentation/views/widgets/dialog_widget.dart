@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_testing/presentation/views/screens/createvariant%20_screen.dart';
 
 class VariationDialog extends StatelessWidget {
   const VariationDialog({super.key});
@@ -15,55 +14,41 @@ class VariationDialog extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image(image: AssetImage("assets/key.png",),fit: BoxFit.contain,height: 100,width: 100,),
-            /// Title
-            RichText(
-              text: TextSpan(
-                children: <TextSpan>[
-                  const TextSpan(text: "Create Variation",
-                      style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),),
-                  const TextSpan(text: "\nAdd different options of your product, such as size, color, or style, to manage them easily.",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ]
+            Image.asset(
+              "assets/key.png",
+              height: 100,
+              width: 100,
+              fit: BoxFit.contain,
+            ),
+            const SizedBox(height: 12),
+            const Text(
+              "Create Variation",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 6),
+            const Text(
+              "Add different options of your product, such as size, color, or style, to manage them easily.",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.grey, fontSize: 14),
             ),
             const SizedBox(height: 16),
-
-            /// Multiple Variation Button
             _DialogButton(
               title: "Multiple Variation",
               onTap: () {
                 Navigator.pop(context, "multiple");
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const CreateVariantScreen(),
-                  ));
               },
             ),
-
             const SizedBox(height: 12),
-
-            /// Single Variation Button
             _DialogButton(
               title: "Single Variation",
               onTap: () {
                 Navigator.pop(context, "single");
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const CreateVariantScreen(),
-                  ));
               },
             ),
           ],
@@ -72,7 +57,7 @@ class VariationDialog extends StatelessWidget {
     );
   }
 }
-/// Reusable dialog button
+
 class _DialogButton extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
