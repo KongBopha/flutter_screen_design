@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_testing/presentation/views/widgets/fieldtitle_widget.dart';
 import 'package:flutter_testing/presentation/views/widgets/shadowtextfield_widget.dart';
+import 'package:flutter_testing/presentation/views/widgets/uploadimage_widget.dart';
 
 class SinglevariationScreen extends StatefulWidget {
   const SinglevariationScreen({super.key});
@@ -56,14 +55,19 @@ class _SinglevariationScreenState extends State<SinglevariationScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Note
-            const Text(
-              "Note*: One product must have at least one of its product’s variants.",
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 13,
-              ),
-            ),
-
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(text: "Note*:",style: TextStyle(color: Colors.red,)),
+                  TextSpan(text: 
+                  "\tOne product must have at least one of its product’s variants.",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                  ),
+                ),
+                ]
+            ),),
             const SizedBox(height: 16),
 
             // Product Card
@@ -81,29 +85,11 @@ class _SinglevariationScreenState extends State<SinglevariationScreen> {
                 ],
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Product image
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(
-                      "assets/images/jacket.png", // replace with your image
-                      height: 120,
-                      width: 120,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-
-                  const SizedBox(height: 12),
-
-                  // Upload photo button
-                  OutlinedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.add_a_photo_outlined),
-                    label: const Text("Upload Photo"),
-                  ),
-
+                  // product image
+                  const UploadimageWidget(),
                   const SizedBox(height: 24),
-
                   // Variation name
                   const FieldTitle("Variation name (Required)"),
                   ShadowTextField(
@@ -137,6 +123,13 @@ class _SinglevariationScreenState extends State<SinglevariationScreen> {
                     controller: stockController,
                     hintText: "99",
                   ),
+                  const SizedBox(height: 16),
+
+                  const FieldTitle("Discount"),
+                  ShadowTextField(
+                    controller: stockController,
+                    hintText: "40",
+                  ),
                 ],
               ),
             ),
@@ -152,7 +145,7 @@ class _SinglevariationScreenState extends State<SinglevariationScreen> {
                   borderRadius: BorderRadius.circular(14),
                 ),
               ),
-              child: const Text("Add variations"),
+              child: const Text("Add variations",style: TextStyle(color: Colors.black),),
             ),
 
             const SizedBox(height: 16),
@@ -172,6 +165,7 @@ class _SinglevariationScreenState extends State<SinglevariationScreen> {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
+                  color: Colors.white,
                 ),
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class DropdownWidget<T> extends StatelessWidget {
   final String labelText;
+  final TextInputType? hintText;
   final T? selectedItem;
   final List<T> items;
   final ValueChanged<T?>? onChanged;
@@ -10,6 +11,7 @@ class DropdownWidget<T> extends StatelessWidget {
   const DropdownWidget({
     super.key,
     required this.labelText,
+             this.hintText,
     required this.selectedItem,
     required this.items,
     required this.onChanged,
@@ -21,6 +23,8 @@ class DropdownWidget<T> extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        //hint text
+        Text(hintText?.toString() ?? '', style: const TextStyle(color: Colors.grey)),
         /// Title
         Text(
           labelText,
