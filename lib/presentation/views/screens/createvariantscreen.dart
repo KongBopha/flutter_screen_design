@@ -26,7 +26,11 @@ class _CreateVariantScreenState extends State<CreateVariantScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Create Option")),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text("Create Option"),
+        backgroundColor: Colors.white,
+        ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -44,8 +48,8 @@ class _CreateVariantScreenState extends State<CreateVariantScreen> {
                 height: 50,
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: addMoreOption,
-                  child: const Text("Add more option"),
+                  onPressed:widget.isMultiple? addMoreOption:null,
+                  child: const Text("Add more option",style: TextStyle(color: Colors.black),),
                 ),
               ),
             ),
