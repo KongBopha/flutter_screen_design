@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_testing/domain/models/variantmodel.dart';
+import 'package:flutter_testing/presentation/views/screens/successful_screen.dart';
 import 'package:flutter_testing/presentation/views/widgets/variantcard_widget.dart';
 
 class MultiplevariationScreen extends StatefulWidget {
@@ -82,13 +83,16 @@ class _MultiplevariationScreenState extends State<MultiplevariationScreen> {
             /// Create
             ElevatedButton(
               onPressed: () {
-                /// collect data
-                for (final v in variations) {
-                  debugPrint(v.nameController.text);
-                }
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const SuccessfulScreen(),
+                ),
+              );
+ 
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: Colors.redAccent,
                 minimumSize: const Size(double.infinity, 52),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
@@ -97,7 +101,7 @@ class _MultiplevariationScreenState extends State<MultiplevariationScreen> {
               child: const Text(
                 "Create",
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                 ),

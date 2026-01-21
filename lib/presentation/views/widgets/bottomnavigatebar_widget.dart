@@ -26,6 +26,7 @@ class _BottomnavigatebarWidgetState extends State<BottomnavigatebarWidget> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.black,
         onTap: (index) {
           setState(() => _selectedIndex = index);
         },

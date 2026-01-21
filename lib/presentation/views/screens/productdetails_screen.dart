@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_testing/domain/models/product_details_model.dart';
 import 'package:flutter_testing/domain/models/productvariants_model.dart';
-import 'package:flutter_testing/presentation/views/screens/createvariantscreen.dart';
 import 'package:flutter_testing/presentation/views/screens/variant_product_screen.dart';
 import 'package:flutter_testing/presentation/views/widgets/product_details_widget.dart';
 

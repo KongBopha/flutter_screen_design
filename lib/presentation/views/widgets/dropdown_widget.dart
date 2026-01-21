@@ -47,7 +47,7 @@ class DropdownWidget<T> extends StatelessWidget {
             ],
           ),
           child: DropdownButtonFormField<T>(
-            value: selectedItem,
+            initialValue: selectedItem,
             onChanged: onChanged,
             icon: const Icon(
               Icons.keyboard_arrow_down,

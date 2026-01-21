@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_testing/presentation/views/screens/successful_screen.dart';
 import 'package:flutter_testing/presentation/views/widgets/fieldtitle_widget.dart';
 import 'package:flutter_testing/presentation/views/widgets/shadowtextfield_widget.dart';
 import 'package:flutter_testing/presentation/views/widgets/uploadimage_widget.dart';
@@ -152,12 +153,19 @@ class _SinglevariationScreenState extends State<SinglevariationScreen> {
 
             // Create button
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const SuccessfulScreen(),
+                ),
+              );
+              },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: Colors.redAccent,
                 minimumSize: const Size(double.infinity, 52),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(24),
                 ),
               ),
               child: const Text(

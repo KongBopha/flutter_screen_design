@@ -32,8 +32,8 @@ class _UploadimageWidgetState extends State<UploadimageWidget> {
               Image.file(
                 File(_image!.path),
                 height: 200,
-                width: 200,
-                fit: BoxFit.cover,
+                width: double.infinity,
+                fit: BoxFit.contain,
               )
         else
           Container(
